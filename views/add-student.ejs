@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <title>Add student</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <!-- icon -->
+      <h1>
+        Add student
+        <!-- add icon -->
+        <i class="fas fa-plus"></i>
+      </h1>
+      <form enctype="multipart/form-data" action="/add-student" >
+        <!-- Post Title -->
+        <div class="input-wrapper">
+          <label for="name">Full name</label>
+          <input type="text" name="fullName" id="name" />
+        </div>
+        <div class="input-wrapper">
+          <label for="age">Age</label>
+          <input type="number" name="age" id="age" />
+        </div>
+        <div class="input-wrapper">
+          <label for="date-of-birth">Date of birth</label>
+          <input type="date" name="dateOfBirth" id="date-of-birth" />
+        </div>
+        <div class="input-wrapper">
+          <label for="class">class</label>
+          <input type="number" name="classOfStudy" id="class" />
+        </div>
+
+        <!-- Category -->
+        <div class="input-wrapper">
+          <label for="subjects">subjects</label>
+          <select name="subjects" id="subjects" multiple>
+            <option value="English">English</option>
+            <option value="Maths">Maths</option>
+            <option value="science">science</option>
+            <option value="social">social</option>
+            <option value="economics">Economics</option>
+            <option value="hindi">Hindi</option>
+          </select>
+          <!-- err -->
+        </div>
+
+        <div class="input-wrapper">
+          <label for="percentage">percentage</label>
+          <input type="number" name="percentage" id="percentage" />
+        </div>
+        <div class="input-wrapper">
+          <label for="grade">grade</label>
+          <input type="text" name="grade" id="grade" />
+        </div>
+
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </body>
+</html>
