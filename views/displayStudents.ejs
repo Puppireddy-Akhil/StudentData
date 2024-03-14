@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Students</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .students-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 90%; /* Adjust width as needed */
+      display: flex;
+      flex-wrap: wrap; /* Allow wrapping */
+      justify-content: space-around; /* Add space between students */
+    }
+
+    .student-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 10px; /* Adjust spacing between cards */
+      width: calc(30% - 20px); /* Adjust width dynamically */
+      box-sizing: border-box; /* Ensure padding doesn't increase width */
+    }
+
+    .student-card p {
+      margin: 5px 0;
+    }
+
+    .student-card a {
+      text-decoration: none;
+      color: #007bff;
+      margin-right: 10px;
+    }
+
+    .student-card a:hover {
+      color: #0056b3;
+    }
+
+    .student-card i {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="students-container">
+    <% students.forEach(function(student) { %>
+    <div class="student-card">
+      <h2><%= student.fullName %></h2>
+      <p>Roll Number: <%= student.rollNo %></p>
+      <p>Age: <%= student.age %></p>
+      <p>Date of Birth: <%= student.dateOfBirth %></p>
+      <p>Class: <%= student.classOfStudy %></p>
+      <p>Subjects: <%= student.subjects.join(', ') %></p>
+      <p>Percentage: <%= student.percentage %></p>
+      <p>Grade: <%= student.grade %></p>
+      <p>Marks:</p>
+<ul>
+  <% Object.keys(student.marks).forEach((subject) => { %>
+    <li><%= subject %>: <%= student.marks[subject] %></li>
+  <% }); %>
+</ul>
+      <p>
+        <a href="/edit/student/<%= student.rollNo %>">
+          <i class="fas fa-edit"></i> Edit
+        </a>
+        <a href="/delete/<%= student.rollNo %>">
+          <i class="fas fa-trash-alt"></i> Delete
+        </a>
+      </p>
+    </div>
+    <% }); %>
+  </div>
+</body>
+</html>
